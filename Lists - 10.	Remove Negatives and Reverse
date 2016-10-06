@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication10
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] input = Console.ReadLine().Split(' ');
+
+            List<int> numbers = new List<int>();
+
+            for (int i = 0; i <=input.Length-1; i++)
+            {
+                numbers.Add(int.Parse(input[i]));   
+            }
+            for (int i = numbers.Count - 1; i >=0; i--)
+            {
+                if (numbers[i] < 0)
+                {
+                    numbers.Remove(numbers[i]);
+                    if (numbers.Count == 0)
+                    {
+                        Console.WriteLine("empty");
+                    }
+                }
+                else 
+                {
+                    Console.Write("{0} ", numbers[i]);
+                }
+            }
+        }
+    }
+}
