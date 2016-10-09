@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Fix_Emails
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string names = Console.ReadLine();
+
+            Dictionary<string, string> contacts = new Dictionary<string, string>();
+
+            while (!names.Equals("stop"))
+            {
+                string emails = Console.ReadLine();
+
+                contacts[names] = emails;
+
+               
+                names = Console.ReadLine();
+            }
+
+            foreach (var item in contacts.Where(x=>!x.Value.Contains(".us") && !x.Value.Contains(".uk")))
+            {
+                Console.WriteLine($"{item.Key} -> {item.Value}");
+            }
+        }
+    }
+}
